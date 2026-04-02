@@ -1,95 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment 2 | Tables Demo</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>HTML Text Formatting Tags</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: linear-gradient(135deg, #0b1f3a, #1d428a);
+            color: #ffffff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #c8102e;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #1d428a; /* NBA blue */
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f4f6fa;
+        }
+
+        tr:hover {
+            background-color: #e3e9f7;
+            transition: 0.3s;
+        }
+
+        code {
+            background-color: #eef2ff;
+            padding: 3px 6px;
+            border-radius: 4px;
+            color: #1d428a;
+            font-weight: bold;
+        }
+
+        mark {
+            background-color: #c8102e; /* NBA red */
+            color: white;
+            padding: 2px 4px;
+        }
+    </style>
 </head>
+
 <body>
 
-  <main class="container">
+<h1>HTML Text Formatting Tags</h1>
 
-    <header class="header">
-      <h1>Tables Demonstration</h1>
-      <p>This page showcases how tables organize structured data effectively with improved styling.</p>
-    </header>
-    <section class="box">
-      <h2>Student Information</h2>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Course</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ST201</td>
-              <td>Rahul Verma</td>
-              <td>Software Engineering</td>
-            </tr>
-            <tr>
-              <td>ST202</td>
-              <td>Pooja Sharma</td>
-              <td>Cloud Computing</td>
-            </tr>
-            <tr>
-              <td>ST203</td>
-              <td>Karan Patel</td>
-              <td>Machine Learning</td>
-            </tr>
-            <tr>
-              <td>ST204</td>
-              <td>Ananya Iyer</td>
-              <td>Web Development</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<table>
+    <tr>
+        <th>Tag</th>
+        <th>Description</th>
+        <th>Example Output</th>
+    </tr>
 
-    <!-- Technology Table -->
-    <section class="box">
-      <h2>Web Technologies</h2>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Technology</th>
-              <th>Usage</th>
-              <th>Example</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>HTML</td>
-              <td>Structure of webpage</td>
-              <td>&lt;h1&gt;Heading&lt;/h1&gt;</td>
-            </tr>
-            <tr>
-              <td>CSS</td>
-              <td>Styling and layout</td>
-              <td>color: blue;</td>
-            </tr>
-            <tr>
-              <td>JavaScript</td>
-              <td>Interactivity</td>
-              <td>alert("Hello");</td>
-            </tr>
-            <tr>
-              <td>Bootstrap</td>
-              <td>Responsive design</td>
-              <td>class="container"</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <tr>
+        <td><code>&lt;b&gt;</code></td>
+        <td>Defines bold text</td>
+        <td><b>Bold Text</b></td>
+    </tr>
 
-  </main>
+    <tr>
+        <td><code>&lt;strong&gt;</code></td>
+        <td>Defines important text (strong emphasis)</td>
+        <td><strong>Strong Text</strong></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;i&gt;</code></td>
+        <td>Defines italic text</td>
+        <td><i>Italic Text</i></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;em&gt;</code></td>
+        <td>Defines emphasized text</td>
+        <td><em>Emphasized Text</em></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;u&gt;</code></td>
+        <td>Defines underlined text</td>
+        <td><u>Underlined Text</u></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;mark&gt;</code></td>
+        <td>Defines marked or highlighted text</td>
+        <td><mark>Highlighted Text</mark></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;small&gt;</code></td>
+        <td>Defines smaller text</td>
+        <td><small>Small Text</small></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;del&gt;</code></td>
+        <td>Defines deleted (strikethrough) text</td>
+        <td><del>Deleted Text</del></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;ins&gt;</code></td>
+        <td>Defines inserted text</td>
+        <td><ins>Inserted Text</ins></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;sub&gt;</code></td>
+        <td>Defines subscript text</td>
+        <td>H<sub>2</sub>O</td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;sup&gt;</code></td>
+        <td>Defines superscript text</td>
+        <td>X<sup>2</sup></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;code&gt;</code></td>
+        <td>Defines computer code text</td>
+        <td><code>printf()</code></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;pre&gt;</code></td>
+        <td>Defines preformatted text</td>
+        <td>
+<pre>
+Line 1
+Line 2
+</pre>
+        </td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;q&gt;</code></td>
+        <td>Defines a short quotation</td>
+        <td><q>This is a quote</q></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;blockquote&gt;</code></td>
+        <td>Defines a block quotation</td>
+        <td>
+            <blockquote>This is a block quote</blockquote>
+        </td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;abbr&gt;</code></td>
+        <td>Defines an abbreviation</td>
+        <td><abbr title="HyperText Markup Language">HTML</abbr></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;cite&gt;</code></td>
+        <td>Defines the title of a work</td>
+        <td><cite>Web Technologies</cite></td>
+    </tr>
+
+</table>
 
 </body>
 </html>
