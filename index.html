@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSD Assignments</title>
+
+  <style>
+    :root {
+      --bg: #000000;
+      --glass: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: #a1a1a6;
+      --accent: #0a84ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(1000px, 90%);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      text-decoration: none;
+      color: inherit;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+    <h1>FSD Assignments</h1>
+    <p class="subtitle">All assignments in one place</p>
+
+    <section class="grid">
+
+      <a class="card" href="./Assignment-1/">
+        <h2>Assignment 1</h2>
+        <p>HTML basics & tables</p>
+        <span class="link">View →</span>
+      </a>
+
+      <a class="card" href="./Assignment-2/">
+        <h2>Assignment 2</h2>
+        <p>Portfolio page</p>
+        <span class="link">View →</span>
+      </a>
+
+      <a class="card" href="./Assignment-3/">
+        <h2>Assignment 3</h2>
+        <p>Landing page UI</p>
+        <span class="link">View →</span>
+      </a>
+
+      <a class="card" href="./Assignment-4/">
+        <h2>Assignment 4</h2>
+        <p>Forms & validation</p>
+        <span class="link">View →</span>
+      </a>
+
+      <a class="card" href="./Assignment-5/">
+        <h2>Assignment 5</h2>
+        <p>JavaScript page</p>
+        <span class="link">View →</span>
+      </a>
+
+      <a class="card" href="./Assignment-6/">
+        <h2>Assignment 6</h2>
+        <p>Mini project</p>
+        <span class="link">View →</span>
+      </a>
+
+    </section>
+  </main>
+
+</body>
+</html>
