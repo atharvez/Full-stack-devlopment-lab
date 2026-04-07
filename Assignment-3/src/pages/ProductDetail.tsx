@@ -1,13 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ShoppingBag, Verified, Truck, ArrowRight } from 'lucide-react';
-import { PRODUCTS } from '../constants';
+import { ArrowLeft, ShoppingBag, Verified, Truck, ArrowRight, Loader2 } from 'lucide-react';
+import { Product } from '../constants';
 import ProductCard from '../components/ProductCard';
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const product = PRODUCTS.find(p => p.id === id) || PRODUCTS[0];
-  const relatedProducts = PRODUCTS.filter(p => p.id !== id).slice(0, 4);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      setLoading(true);
+      try {
+        const [prodRes, allRes] = await Promise.all([
+          fetch(`/api/products/${id}`),
+          fetch('/api/products')
+        ]);
+        const prodData = await prodRes.json();
+        const allData = await allRes.json();
+        
+        setProduct(prodData);
+        setRelatedProducts(allData.filter((p: Product) => p.id !== id).slice(0, 4));
+      } catch (error) {
+        console.error('Error fetching product details:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProductData();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="pt-32 pb-24 px-6 flex items-center justify-center min-h-screen">
+        <Loader2 className="w-12 h-12 text-primary animate-spin" />
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <div className="pt-32 pb-24 px-6 text-center">
+        <h1 className="text-3xl font-bold mb-4">Product Not Found</h1>
+        <Link to="/shop" className="text-primary font-bold">Return to Shop</Link>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
@@ -35,10 +75,10 @@ export default function ProductDetail() {
           {/* Floating Info Chips */}
           <div className="absolute -bottom-4 -right-4 flex flex-col gap-3">
             <div className="bg-surface-container-highest px-4 py-2 rounded-full border border-outline-variant/20 shadow-lg backdrop-blur-md">
-              <span className="font-label text-[10px] tracking-widest uppercase text-tertiary">MINT CONDITION 10.0</span>
+              <span className="font-label text-[10px] tracking-widest uppercase text-tertiary">{product.tag || 'MINT CONDITION 10.0'}</span>
             </div>
             <div className="bg-surface-container-highest px-4 py-2 rounded-full border border-outline-variant/20 shadow-lg backdrop-blur-md">
-              <span className="font-label text-[10px] tracking-widest uppercase text-secondary">HOLOFoil SERIES</span>
+              <span className="font-label text-[10px] tracking-widest uppercase text-secondary">{product.expansion || 'HOLOFoil SERIES'}</span>
             </div>
           </div>
         </div>
@@ -46,7 +86,7 @@ export default function ProductDetail() {
         {/* Product Details Section */}
         <div className="lg:col-span-5 flex flex-col gap-8">
           <div className="space-y-4">
-            <span className="font-label text-xs tracking-[0.2em] text-primary uppercase">Artifact Collection</span>
+            <span className="font-label text-xs tracking-[0.2em] text-primary uppercase">{product.category}</span>
             <h1 className="text-5xl lg:text-6xl font-headline font-extrabold tracking-tight text-on-surface leading-tight">
               {product.name}
             </h1>

@@ -7,6 +7,7 @@ import { cn } from '../lib/utils';
 interface ProductCardProps {
   product: Product;
   className?: string;
+  key?: string | number;
 }
 
 export default function ProductCard({ product, className }: ProductCardProps) {

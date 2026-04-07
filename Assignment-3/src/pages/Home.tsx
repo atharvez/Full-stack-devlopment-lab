@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Loader2 } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
-import { PRODUCTS } from '../constants';
+import { Product } from '../constants';
 
 export default function Home() {
-  const featuredProducts = PRODUCTS.slice(0, 4);
+  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFeatured = async () => {
+      try {
+        const response = await fetch('/api/products');
+        const data = await response.json();
+        setFeaturedProducts(data.slice(0, 4));
+      } catch (error) {
+        console.error('Error fetching featured products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchFeatured();
+  }, []);
 
   return (
     <div className="overflow-hidden">
@@ -36,9 +52,9 @@ export default function Home() {
               Pokémon, Yu-Gi-Oh, Magic The Gathering. Discover authentic artifacts from the world's most prestigious collections.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <button className="px-8 py-4 rounded-xl bg-gradient-to-br from-primary to-primary-dim text-on-primary font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-xl shadow-primary/20">
+              <Link to="/shop" className="px-8 py-4 rounded-xl bg-gradient-to-br from-primary to-primary-dim text-on-primary font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-xl shadow-primary/20">
                 Shop Now
-              </button>
+              </Link>
               <button className="px-8 py-4 rounded-xl bg-transparent border border-outline-variant/20 text-on-surface font-bold text-lg hover:bg-surface-bright transition-all duration-300">
                 View Gallery
               </button>
@@ -98,9 +114,15 @@ export default function Home() {
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {loading ? (
+               Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="aspect-[3/4] bg-surface-container-high rounded-xl animate-pulse"></div>
+              ))
+            ) : (
+              featuredProducts.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            )}
           </div>
         </div>
       </section>
