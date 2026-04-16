@@ -1,34 +1,37 @@
-# Assignment 3: UrbanSole E-commerce Core
+# Assignment 3: Relic Vault – Trading Card Marketplace
 
-## 👟 Overview
-UrbanSole is a specialized shopping platform I built to master the core fundamentals of **Product State Management** and **Dynamic Routing**. It bridges a high-performance React frontend with a custom-engineered Express backend to deliver a seamless retail experience.
+## 🃏 Overview
+Relic Vault is a high-end collector's marketplace developed to explore **Modular Backend Architecture** and **Complex Product Filtering**. The platform specialize in high-value trading cards across Pokémon, Magic: The Gathering, and Yu-Gi-Oh! ecosystems.
 
 ---
 
 ## ✨ Features
 
-### 🛍️ Shopping Experience
-- **Client-Side Routing**: Implemented `react-router-dom` for instantaneous transitions between the Discovery, Collections, and Product Detail views.
-- **Product Context**: Scalable state management for handling product catalogs and detail views.
-- **Dynamic Layout**: A responsive shoe-focused UI designed for visual consistency across all screen sizes.
+### 🔍 Discovery & Interaction
+- **Niche Category Routing**: Built with `react-router-dom` to handle distinct collections of TCG assets seamlessly.
+- **Rarity Tracking**: Displays secondary market metadata such as specific card rarities (Gem Mint, Alpha Edition, etc.).
+- **High-Fidelity Detail Views**: Dedicated page layouts for individual relics, showcasing triple-etched holographic surface details and pricing trends.
 
-### 🧠 Backend Architecture
-- **RESTful Product Engine**: A dedicated Node/Express server that serves product data with proper CORS configurations and endpoint structure.
-- **Modular Data Source**: Easily extensible product JSON structure for rapid catalog expansion.
+### 🧠 System Architecture
+- **Express-Powered API**: A robust Node.js backend that serves a curated catalog of high-value trading cards.
+- **Auto-Seeder System**: A custom script that populates the MongoDB database with a diverse range of legendary TCG assets on initialization.
 
 ---
 
 ## 🛠️ Technical Stack
 - **Frontend**: Vite + React
-- **Routing**: React Router v6
 - **Backend Service**: Node.js & Express
-- **Styling**: Tailwind CSS / Modern CSS
+- **Database**: MongoDB (via Mongoose)
+- **Routing**: React Router v6
+- **Styling**: Modern CSS / Tailwind
 
 ---
 
-## 📂 Architecture
-- `/src`: Modular React components and routing logic.
-- `/backend`: Scalable Express implementation for product serving.
+## 🚀 Getting Started
+1. **Database Setup**: Ensure MongoDB is running locally.
+2. **Seed Data**: Run the seeder script in the backend directory to populate the vault.
+3. **Launch Server**: Start the Express backend.
+4. **Launch Frontend**: Start the Vite development server.
 
 ---
 *Built with ❤️ as part of the Full-Stack Development Lab.*
