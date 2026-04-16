@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyInsight | Premium Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar / Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i data-lucide="cloud-lightning" class="logo-icon"></i>
+                <span>SkyInsight</span>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="citySearch" placeholder="Search city...">
+                </div>
+                <div id="searchResults" class="search-results hidden"></div>
+            </div>
+
+            <nav class="main-nav">
+                <div class="nav-item active" data-view="dashboard">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" data-view="forecast">
+                    <i data-lucide="calendar"></i>
+                    <span>7-Day Forecast</span>
+                </div>
+            </nav>
+
+            <div class="location-card">
+                <i data-lucide="map-pin"></i>
+                <div class="location-info">
+                    <h3 id="locationName">Loading...</h3>
+                    <p id="locationCountry">--</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-info">
+                    <h1 id="welcomeText">Dashboard</h1>
+                    <p id="currentDate">--</p>
+                </div>
+                <div class="unit-toggle">
+                    <span class="active">°C</span>
+                    <span>°F</span>
+                </div>
+            </header>
+
+            <section class="top-row">
+                <!-- Current Weather Card -->
+                <div class="glass-card current-weather">
+                    <div class="weather-main">
+                        <div class="temp-container">
+                            <span id="currentTemp">--</span><span class="degree">°</span>
+                        </div>
+                        <div class="condition-container">
+                            <p id="weatherCondition">--</p>
+                            <p id="tempRange">H: -- L: --</p>
+                        </div>
+                    </div>
+                    <div class="weather-icon-large">
+                        <i data-lucide="sun" id="mainWeatherIcon"></i>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="glass-card stat-card">
+                        <i data-lucide="wind" class="stat-icon"></i>
+                        <div class="stat-info">
+                            <p>Wind Speed</p>
+                            <h4 id="windSpeed">-- km/h</h4>
+                        </div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <i data-lucide="droplets" class="stat-icon"></i>
+                        <div class="stat-info">
+                            <p>Humidity</p>
+                            <h4 id="humidity">--%</h4>
+                        </div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <i data-lucide="umbrella" class="stat-icon"></i>
+                        <div class="stat-info">
+                            <p>Precipitation</p>
+                            <h4 id="precipProb">--%</h4>
+                        </div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <i data-lucide="gauge" class="stat-icon"></i>
+                        <div class="stat-info">
+                            <p>UV Index</p>
+                            <h4 id="uvIndex">--</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="charts-row">
+                <!-- Temperature Trend Chart -->
+                <div class="glass-card chart-container large">
+                    <div class="chart-header">
+                        <h3>Temperature Trend (24h)</h3>
+                        <div class="chart-actions">
+                            <button class="active">Today</button>
+                            <button>Tomorrow</button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="tempChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Weather Distribution -->
+                <div class="glass-card chart-container small">
+                    <div class="chart-header">
+                        <h3>Condition Mix</h3>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="conditionChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section class="forecast-row">
+                <div class="section-title">
+                    <h3>7-Day Forecast</h3>
+                    <button>View All</button>
+                </div>
+                <div class="forecast-scroll" id="forecastContainer">
+                    <!-- Forecast items will be injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loader" class="loader-overlay flex">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
