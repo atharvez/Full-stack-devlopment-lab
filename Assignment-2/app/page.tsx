@@ -8,7 +8,9 @@ import { Reveal } from "@/components/reveal";
 import { SkillCard } from "@/components/skill-card";
 import { ProjectCard } from "@/components/project-card";
 import { skills, socialLinks } from "@/components/site-data";
+import { GitHubDashboard } from "@/components/github-dashboard";
 import Image from "next/image";
+import { User, Sparkles, Send, MousePointer2 } from "lucide-react";
 
 export default function Home() {
   const [dbProjects, setDbProjects] = useState<any[]>([]);
@@ -62,282 +64,240 @@ export default function Home() {
       setSending(false);
     }
   };
+
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative min-h-screen bg-background text-white selection:bg-accent selection:text-background">
+      {/* Premium Overlays */}
+      <div className="bg-noise" />
+      <div className="aurora -left-1/4 -top-1/4 from-accent/20" />
+      <div className="aurora -bottom-1/4 -right-1/4 from-accentStrong/20" />
+
       <Navbar />
 
-      <section
-        id="home"
-        className="section-padding relative flex min-h-screen items-center"
-      >
-        <div className="absolute inset-0">
-          <div className="absolute left-[8%] top-24 h-48 w-48 rounded-full bg-accent/20 blur-3xl" />
-          <div className="absolute right-[10%] top-[20%] h-72 w-72 rounded-full bg-accentStrong/15 blur-[120px]" />
-          <div className="absolute bottom-10 right-[18%] h-60 w-60 rotate-[-18deg] border border-accent/20" />
-          <div className="absolute left-[-8%] top-[28%] h-8 w-[28rem] rotate-[-26deg] bg-accent/20 blur-2xl" />
-        </div>
-
-        <div className="relative mx-auto grid w-full max-w-7xl items-end gap-14 lg:grid-cols-[1.4fr_0.8fr]">
-          <Reveal className="max-w-4xl">
-            <span className="eyebrow">Available for select projects</span>
-            <h1 className="max-w-5xl text-6xl leading-[0.9] text-white sm:text-7xl lg:text-9xl">
-              Hi, I&apos;m Atharva Desai
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-white/[0.72] sm:text-xl">
-              Developer. Designer. Problem Solver.
-            </p>
-            <p className="mt-8 max-w-2xl text-base sm:text-lg">
-              Computer Engineering student building modern interfaces, data
-              products, and engineering tools with equal focus on usability,
-              performance, and clean execution.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3 text-[10px] font-semibold uppercase tracking-[0.34em] text-accent/80">
-              <span className="rounded-full border border-accent/20 bg-accent/5 px-4 py-2">
-                Next.js
-              </span>
-              <span className="rounded-full border border-accent/20 bg-accent/5 px-4 py-2">
-                Machine Learning
-              </span>
-              <span className="rounded-full border border-accent/20 bg-accent/5 px-4 py-2">
-                UI Engineering
-              </span>
-            </div>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button href="#projects">View Work</Button>
-              <Button href="#contact" variant="secondary">
-                Let&apos;s Talk
-              </Button>
-            </div>
-          </Reveal>
-
-          <Reveal className="lg:justify-self-end">
-            <div className="surface clipped-panel relative overflow-hidden rounded-[2rem] p-4 shadow-card">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/15 via-transparent to-transparent" />
-              <div className="relative rounded-[1.5rem] border border-accent/15 bg-black p-5">
-                <div className="mb-4 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.35em] text-white/40">
-                  <span>Active Build</span>
-                  <span>Portfolio</span>
-                </div>
-                <div className="relative overflow-hidden rounded-[1.25rem] bg-white/[0.04]">
-                  <Image
-                    src="/showcase-hero.svg"
-                    alt="Abstract showcase preview"
-                    width={760}
-                    height={920}
-                    className="h-auto w-full object-cover"
-                    priority
-                  />
-                </div>
-                <div className="mt-5 grid grid-cols-2 gap-4 text-sm text-white/60">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.3em] text-accent/70">
-                      Focus
-                    </p>
-                    <p className="mt-2 text-white">UI engineering</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.3em] text-accent/70">
-                      Specialty
-                    </p>
-                    <p className="mt-2 text-white">Systems with impact</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
+      {/* Hero Section */}
+      <section id="home" className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20 text-center sm:px-10 lg:px-16">
+        <Reveal>
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.4em] text-accent">
+            <Sparkles className="h-3 w-3" />
+            <span>Open for collaboration</span>
+          </div>
+          
+          <h1 className="max-w-6xl font-display text-7xl leading-[0.9] tracking-tight sm:text-8xl lg:text-[10rem]">
+            Crafting Digital <br />
+            <span className="text-white/20">Excellence.</span>
+          </h1>
+          
+          <p className="mx-auto mt-12 max-w-2xl text-lg text-white/50 sm:text-xl">
+            Computer Engineering student at PCCOE Pune. Bridging the gap between 
+            complex backend systems and high-fidelity user experiences.
+          </p>
+          
+          <div className="mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button href="#projects">Browse Portfolio</Button>
+            <Button href="#contact" variant="secondary">Get In Touch</Button>
+          </div>
+        </Reveal>
+        
+        <Reveal delay={200} className="mt-20">
+          <div className="flex flex-col items-center gap-4 text-white/20">
+            <MousePointer2 className="h-5 w-5 animate-bounce" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.5em]">Scroll to explore</span>
+          </div>
+        </Reveal>
       </section>
 
+      {/* About Section - Bento Style */}
       <Section
         id="about"
-        eyebrow="About"
-        title="Built for clarity, shaped by taste."
-        description="I bring together frontend engineering, product-minded UI work, and applied machine learning to build systems that are practical, polished, and scalable."
+        eyebrow="Profile"
+        title="Experience meets taste."
+        description="A blend of data science, cloud architecture, and UI engineering."
       >
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <Reveal>
-            <div className="surface clipped-panel rounded-[2rem] p-8 sm:p-10">
-              <p className="max-w-2xl text-lg text-white/80">
-                I&apos;m a B.Tech Computer Engineering student at Pimpri
-                Chinchwad College of Engineering, Pune, graduating in August
-                2027. I enjoy building products that sit at the intersection of
-                software, design, and intelligent systems.
-              </p>
-              <p className="mt-6 max-w-2xl">
-                Most recently, I worked as a Data Science Intern at L&amp;L
-                Products, where I built modular Python pipelines, trained
-                machine learning models on industrial datasets, and created
-                Streamlit dashboards for operational insights and forecasting.
-              </p>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="clipped-panel rounded-[1.5rem] border border-accent/15 bg-accent/5 p-5">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent/70">
-                    Education
-                  </p>
-                  <p className="mt-3 text-white">
-                    B.Tech in Computer Engineering
-                  </p>
-                  <p className="mt-2 text-sm">
-                    Pimpri Chinchwad College of Engineering, Pune
-                  </p>
-                </div>
-                <div className="clipped-panel rounded-[1.5rem] border border-accent/15 bg-accent/5 p-5">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent/70">
-                    Leadership
-                  </p>
-                  <p className="mt-3 text-white">UI/UX Lead, GDGC PCCOE</p>
-                  <p className="mt-2 text-sm">
-                    Core Team Member, Spectrum&apos;24
-                  </p>
-                </div>
+        <div className="grid gap-6 lg:grid-cols-12">
+          {/* Main Bio Card */}
+          <div className="surface flex flex-col justify-center rounded-[2.5rem] p-10 lg:col-span-8">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.04] text-accent ring-1 ring-white/10">
+              <User className="h-6 w-6" />
+            </div>
+            <p className="mt-8 text-2xl leading-relaxed text-white/80">
+              I enjoy building systems that are as practical as they are polished. 
+              My journey spans from industrial data science at <span className="text-accent underline underline-offset-4">L&L Products</span> to 
+              scaling community platforms for PCCOE students.
+            </p>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2">
+              <div className="border-l-2 border-accent/20 pl-6">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Education</p>
+                <p className="mt-2 font-display text-lg text-white">B.Tech Computer Engineering</p>
+                <p className="mt-1 text-sm text-white/40">PCCOE, Pune (2027)</p>
               </div>
-              <p className="mt-6 max-w-2xl">
-                My work spans Next.js websites, UI systems, CAD generation
-                tools, blockchain-based product concepts, and data-driven
-                applications designed for real-world decision-making.
-              </p>
+              <div className="border-l-2 border-accent/20 pl-6">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Leadership</p>
+                <p className="mt-2 font-display text-lg text-white">UI/UX Lead, GDGC PCCOE</p>
+              </div>
             </div>
-          </Reveal>
-          <Reveal>
-            <div className="surface clipped-panel group relative overflow-hidden rounded-[2rem] p-4">
-              <div className="absolute inset-0 bg-gradient-to-t from-accent/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <Image
-                src="/profile-minimal.svg"
-                alt="Minimal profile illustration"
-                width={900}
-                height={900}
-                className="h-auto w-full rounded-[1.5rem] border border-accent/15 object-cover grayscale transition duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
-              />
+          </div>
+
+          {/* Experience Graphic Card */}
+          <div className="surface group relative col-span-12 flex h-[400px] flex-col overflow-hidden rounded-[2.5rem] lg:col-span-4 lg:h-auto">
+            <Image
+              src="/profile-minimal.svg"
+              alt="Minimalist avatar"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-accent">Availability</p>
+              <h4 className="mt-2 font-display text-2xl text-white">Pune / Remote</h4>
             </div>
-          </Reveal>
+          </div>
         </div>
       </Section>
 
+      {/* Skills Section */}
       <Section
         id="skills"
-        eyebrow="Skills"
-        title="Capabilities with range."
-        description="A focused toolkit across software engineering, user interface design, machine learning, and technical problem-solving."
+        eyebrow="Capabilities"
+        title="Tools of the trade."
+        description="A specialized toolkit for modern engineering."
       >
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {skills.map((skill, index) => (
-            <Reveal key={skill.title} delay={index * 90}>
+            <Reveal key={skill.title} delay={index * 100}>
               <SkillCard {...skill} />
             </Reveal>
           ))}
         </div>
       </Section>
 
+      {/* Projects Section - Bento Grid */}
       <Section
         id="projects"
-        eyebrow="Projects"
-        title="Work that leads with impact."
-        description="Selected work across CAD automation, blockchain systems, and frontend engineering, presented with strong product framing and clean visual hierarchy."
+        eyebrow="Selected Work"
+        title="Impact-driven builds."
+        description="A gallery of experiments and focused production builds."
       >
-        <div className="grid gap-6 xl:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-12">
           {loading ? (
-            <div className="col-span-full py-20 text-center text-white/40">
-              Loading projects...
-            </div>
-          ) : dbProjects.length > 0 ? (
-            dbProjects.map((project, index) => (
-              <Reveal
-                key={project._id || project.title}
-                className={index === 0 ? "xl:col-span-2" : ""}
-                delay={index * 120}
-              >
-                <ProjectCard {...project} priority={index === 0} />
-              </Reveal>
-            ))
-          ) : (
-            <div className="col-span-full py-20 text-center text-white/40">
-              No projects found in database.
-            </div>
-          )}
+            <div className="col-span-full py-20 text-center text-white/20">Building grid...</div>
+          ) : dbProjects.map((project, index) => (
+            <Reveal 
+              key={project.title} 
+              className={index === 0 ? "lg:col-span-8" : "lg:col-span-4"}
+              delay={index * 150}
+            >
+              <ProjectCard {...project} priority={index === 0} />
+            </Reveal>
+          ))}
         </div>
       </Section>
 
+      {/* New Activity Dashboard */}
+      <Section
+        id="activity"
+        eyebrow="Live Stream"
+        title="Developer Pulse."
+        description="Real-time transparency into my coding activity and contributions."
+      >
+        <GitHubDashboard />
+      </Section>
+
+      {/* Contact Section */}
       <Section
         id="contact"
-        eyebrow="Contact"
-        title="Let&apos;s build something that feels unforgettable."
-        description="Open to freelance collaborations, product partnerships, and ambitious ideas that deserve a sharp digital presence."
+        eyebrow="Inquiry"
+        title="Ready to build?"
+        description="Reach out for collaborations, project inquiries, or just to say hi."
       >
-        <div className="grid gap-8 lg:grid-cols-[1fr_0.85fr]">
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
-            <div className="surface clipped-panel rounded-[2rem] p-8 sm:p-10">
-              <p className="text-sm uppercase tracking-[0.32em] text-accent/70">
-                Email
-              </p>
-              <a
-                href="mailto:7atharvadesai@gmail.com"
-                className="mt-4 inline-block text-3xl font-display uppercase tracking-[-0.04em] text-white transition hover:text-accent sm:text-4xl"
-              >
-                7atharvadesai@gmail.com
-              </a>
-              <div className="mt-10 flex flex-wrap gap-3">
-                {socialLinks.map((item) => (
-                  <Button
-                    key={item.label}
-                    href={item.href}
-                    variant="secondary"
-                    external
-                  >
-                    {item.label}
-                  </Button>
-                ))}
+            <div className="surface h-full rounded-[2.5rem] p-10">
+              <h3 className="text-4xl font-display leading-[1.1] text-white lg:text-5xl">
+                Let&apos;s create something <span className="text-accent underline decoration-accent/30 underline-offset-8">meaningful.</span>
+              </h3>
+              
+              <div className="mt-16 space-y-10">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">Direct Link</p>
+                  <a href="mailto:7atharvadesai@gmail.com" className="mt-4 block text-2xl font-display text-white hover:text-accent transition-colors">
+                    7atharvadesai@gmail.com
+                  </a>
+                </div>
+                
+                <div className="flex gap-4">
+                  <a href="https://github.com/atharvez" target="_blank" className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-colors hover:border-accent hover:text-accent">
+                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-colors hover:border-accent hover:text-accent">
+                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                </div>
               </div>
             </div>
           </Reveal>
-          <Reveal>
-            <div className="surface clipped-panel rounded-[2rem] p-8 sm:p-10">
-              <p className="text-sm uppercase tracking-[0.32em] text-accent/70">
-                Quick Note
-              </p>
-              <p className="mt-4 max-w-md text-sm">
-                Interested in internships, collaborations, and projects across
-                frontend engineering, design systems, machine learning, and
-                product-focused development.
-              </p>
-              <form className="mt-6 space-y-4" onSubmit={handleContactSubmit}>
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  value={formState.name}
-                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  required
-                  className="w-full rounded-full border border-accent/15 bg-white/[0.03] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-accent"
-                />
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  value={formState.email}
-                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  required
-                  className="w-full rounded-full border border-accent/15 bg-white/[0.03] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-accent"
-                />
-                <textarea
-                  rows={5}
-                  placeholder="Tell me about your project"
-                  value={formState.message}
-                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  required
-                  className="w-full rounded-[1.5rem] border border-accent/15 bg-white/[0.03] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-accent"
-                />
-                <Button as="button" type="submit" disabled={sending}>
-                  {sending ? "Sending..." : "Start the Conversation"}
+
+          <Reveal delay={100}>
+            <div className="surface rounded-[2.5rem] p-10">
+              <form className="grid gap-6" onSubmit={handleContactSubmit}>
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/20 ml-2">Your Name</label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Atharva Desai"
+                      value={formState.name}
+                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                      required
+                      className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-4 text-sm text-white outline-none focus:border-accent transition-colors"
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/20 ml-2">Email Address</label>
+                    <input
+                      type="email"
+                      placeholder="e.g. user@email.com"
+                      value={formState.email}
+                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                      required
+                      className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-4 text-sm text-white outline-none focus:border-accent transition-colors"
+                    />
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  <label className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/20 ml-2">Message</label>
+                  <textarea
+                    rows={6}
+                    placeholder="Briefly describe your project or inquiry..."
+                    value={formState.message}
+                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                    required
+                    className="w-full rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-5 text-sm text-white outline-none focus:border-accent transition-colors resize-none"
+                  />
+                </div>
+                
+                <Button as="button" type="submit" disabled={sending} className="mt-2 w-full sm:w-auto">
+                  {sending ? "Transmitting..." : "Send Message"}
+                  <Send className="ml-2 h-3.5 w-3.5" />
                 </Button>
-                {sentStatus === "success" && (
-                  <p className="mt-2 text-xs text-green-400">Message sent successfully!</p>
-                )}
-                {sentStatus === "error" && (
-                  <p className="mt-2 text-xs text-red-400">Failed to send message. Please check console.</p>
-                )}
+                
+                {sentStatus === "success" && <p className="text-xs text-accent">Transmission successful! I'll reply shortly.</p>}
+                {sentStatus === "error" && <p className="text-xs text-red-400">Error transmitting message. Please try again.</p>}
               </form>
             </div>
           </Reveal>
         </div>
       </Section>
+
+      {/* Footer */}
+      <footer className="px-6 py-12 pb-20 text-center sm:px-10 lg:px-16">
+        <Reveal>
+          <div className="mx-auto h-px w-20 bg-accent/20" />
+          <p className="mt-8 text-[10px] font-bold uppercase tracking-[0.5em] text-white/20">
+            &copy; {new Date().getFullYear()} Atharva Desai. Built with Taste.
+          </p>
+        </Reveal>
+      </footer>
     </main>
   );
 }

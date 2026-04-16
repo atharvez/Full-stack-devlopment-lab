@@ -1,66 +1,36 @@
-# 💻 Full Stack Development Lab
+# 🚀 Full-Stack Development Laboratory
 
-## 📌 Overview
+Welcome to my personal full-stack development journey. This repository is a living collection of my progress, experiments, and technical milestones as I explore the intersection of design, data, and engineering.
 
-This repository contains all my **Full Stack Development (FSD) lab assignments**.
-Each assignment focuses on different concepts of web development including **HTML, CSS, and JavaScript**.
+## 📁 Laboratory Map
 
-A live version of all assignments is hosted using **GitHub Pages**.
-
----
-
-## 🌐 Live Demo
-
-🔗 **View All Assignments Here:**
-👉 https://github.com/atharvez/Full-stack-devlopment-lab
-
----
-
-## 📚 Assignments Included
-
-* **Assignment 1** – HTML basics, tables, and text formatting tags
-* **Assignment 2** – Personal portfolio webpage
-* **Assignment 3** – Product landing page UI
-* **Assignment 4** – Forms and input validation
-* **Assignment 5** – JavaScript-based interactive webpage
-* **Assignment 6** – Mini project / final implementation
+| Project | Focus | Tech Stack | Status |
+| :--- | :--- | :--- | :--- |
+| **[Assignment 1](./Assignment-1)** | The Foundation | HTML5, CSS3 | ✅ Complete |
+| **[Assignment 2](./Assignment-2)** | Modern Portfolio | Next.js, MongoDB, GitHub API | 🚀 Active |
+| **[Assignment 3](./Assignment-3)** | E-commerce Core | React, Vite, Express | ✅ Complete |
+| **[Assignment 4](./Assignment-4)** | Data Visualization | JS, Chart.js, Open-Meteo | ✅ Complete |
+| **[Assignment 5](./Assignment-5)** | Upcoming | TBD | ⏳ Pendng |
+| **[Assignment 6](./Assignment-6)** | Upcoming | TBD | ⏳ Pending |
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ The Toolkit
 
-* HTML5
-* CSS3
-* JavaScript
-
----
-
-## 🚀 How to Use
-
-1. Clone the repository
-2. Open any assignment folder
-3. Run the `index.html` file in your browser
+My current stack focuses on building scalable, user-centric applications:
+- **Frontend**: Next.js (App Router), React, Tailwind CSS, Framer Motion
+- **Backend**: Node.js, Express, Next.js API Routes
+- **Database**: MongoDB (Mongoose)
+- **Visualization**: Chart.js
+- **Tools**: Git, npm, Postman
 
 ---
 
-## 🌍 GitHub Pages Setup
+## 💡 About this Lab
 
-To host your project:
+This repository isn't just about code; it's about **execution and craft**. Each assignment represents a specific challenge—from mastering CSS layout mechanics to architecting full-stack integrations with live third-party APIs.
 
-1. Go to **Repository Settings → Pages**
-2. Select:
+Feel free to explore the individual assignment folders for deeper technical breakdowns!
 
-   * Branch: `main`
-   * Folder: `/root`
-3. Save and wait for deployment
-
-Your site will be live at:
-
-```
-https://atharvez.github.io/Full-stack-devlopment-lab/
-```
 ---
-
-## 👨‍💻 Author
-
-Atharva Desai
+*Built with ❤️ by Atharva Desai.*

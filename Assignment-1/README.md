@@ -1,47 +1,25 @@
-# HTML Text Formatting Tags Table
+# Assignment 1: Web Foundations
 
-## 📌 Project Overview
-
-This project is a **static web page** that demonstrates all commonly used **HTML text formatting tags** in a structured tabular format.
-
-Each tag is displayed along with:
-
-* Tag name
-* Description
-* Example output
-
-The page is styled using **CSS** for better readability and visual appeal.
+## 📜 Overview
+The goal of this assignment was to master the fundamentals of **semantic HTML** and **CSS styling**. I built a comprehensive reference guide for HTML text formatting, focusing on layout precision and clean presentation using HTML tables.
 
 ---
 
-## 🎯 Features
-
-* 📋 Well-organized table layout
-* 🏷️ Covers major HTML text formatting tags
-* 🎨 Styled using CSS (custom themes supported)
-* 💻 Beginner-friendly and easy to understand
+## 🚀 Learning Milestones
+- **Semantic Structure**: Deep-dived into tags like `<blockquote>`, `<cite>`, and `<abbr>` to understand how to write meaningful markup.
+- **CSS Design Systems**: Implemented a "NBA-inspired" color palette (Midnight Blue & Crimson Red) to practice handling visual hierarchy with CSS variables and gradients.
+- **Table Dynamics**: Practiced complex styling for tables, including alternating row colors and hover states for better user scannability.
 
 ---
 
-## 🛠️ Technologies Used
-
-* HTML5
-* CSS3
-
----
-
-## 📁 Project Structure
-
-```
-/project-folder
-│
-├── index.html   # Main webpage
-└── README.md    # Project documentation
-```
+## 🛠️ Built With
+- **Vanilla HTML5**: For structure.
+- **Internal CSS3**: For theming and layout.
 
 ---
 
-## 🚀 How to Run
+## 📂 Key Files
+- `index.html`: The core reference guide.
 
-1. Download or clone the repository
-2. Open `index.html` in any web browser
+---
+*Part of the Full-Stack Development Lab.*

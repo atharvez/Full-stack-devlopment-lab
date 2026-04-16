@@ -8,29 +8,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#030503",
-        foreground: "#f6fff2",
-        muted: "#8ea28a",
-        panel: "#0c120c",
-        line: "rgba(149,255,84,0.16)",
-        accent: "#7dff2f",
-        accentStrong: "#b7ff2b"
+        background: "#020617",
+        foreground: "#f8fafc",
+        muted: "#94a3b8",
+        panel: "#0f172a",
+        line: "rgba(34, 211, 238, 0.1)",
+        accent: "#22d3ee",
+        accentStrong: "#0ea5e9"
       },
       boxShadow: {
-        card: "0 28px 90px rgba(0, 0, 0, 0.42)",
-        glow: "0 0 40px rgba(125, 255, 47, 0.28)"
+        card: "0 28px 90px rgba(0, 0, 0, 0.5)",
+        glow: "0 0 40px rgba(14, 165, 233, 0.3)"
       },
       backgroundImage: {
         mesh:
-          "radial-gradient(circle at top left, rgba(125,255,47,0.18), transparent 24%), radial-gradient(circle at 80% 20%, rgba(183,255,43,0.14), transparent 18%), linear-gradient(180deg, #090f09 0%, #030503 100%)"
+          "radial-gradient(circle at top left, rgba(34, 211, 238, 0.15), transparent 24%), radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.1), transparent 18%), linear-gradient(180deg, #020617 0%, #000 100%)"
       },
       fontFamily: {
-        display: ['"Arial Black"', '"Helvetica Neue"', "sans-serif"],
-        body: ['"Helvetica Neue"', '"Segoe UI"', "sans-serif"]
+        display: ["var(--font-outfit)", "system-ui", "sans-serif"],
+        body: ["var(--font-inter)", "system-ui", "sans-serif"]
       },
       animation: {
         float: "float 8s ease-in-out infinite",
-        pulseLine: "pulseLine 6s ease-in-out infinite"
+        pulseLine: "pulseLine 6s ease-in-out infinite",
+        aurora: "aurora 20s linear infinite"
       },
       keyframes: {
         float: {
@@ -40,6 +41,10 @@ const config: Config = {
         pulseLine: {
           "0%, 100%": { opacity: "0.35", transform: "scaleX(1)" },
           "50%": { opacity: "0.7", transform: "scaleX(1.03)" }
+        },
+        aurora: {
+          "from": { transform: "rotate(0deg)" },
+          "to": { transform: "rotate(360deg)" }
         }
       }
     }
