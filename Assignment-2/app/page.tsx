@@ -1,13 +1,67 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Navbar } from "@/components/navbar";
 import { Section } from "@/components/section";
 import { Button } from "@/components/button";
 import { Reveal } from "@/components/reveal";
 import { SkillCard } from "@/components/skill-card";
 import { ProjectCard } from "@/components/project-card";
-import { skills, projects, socialLinks } from "@/components/site-data";
+import { skills, socialLinks } from "@/components/site-data";
 import Image from "next/image";
 
 export default function Home() {
+  const [dbProjects, setDbProjects] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [sending, setSending] = useState(false);
+  const [sentStatus, setSentStatus] = useState<"idle" | "success" | "error">("idle");
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch("/api/projects");
+        if (res.ok) {
+          const data = await res.json();
+          setDbProjects(data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    setSentStatus("idle");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      });
+
+      if (res.ok) {
+        setSentStatus("success");
+        setFormState({ name: "", email: "", message: "" });
+      } else {
+        setSentStatus("error");
+      }
+    } catch (error) {
+      setSentStatus("error");
+    } finally {
+      setSending(false);
+    }
+  };
   return (
     <main className="relative overflow-hidden">
       <Navbar />
@@ -181,15 +235,25 @@ export default function Home() {
         description="Selected work across CAD automation, blockchain systems, and frontend engineering, presented with strong product framing and clean visual hierarchy."
       >
         <div className="grid gap-6 xl:grid-cols-3">
-          {projects.map((project, index) => (
-            <Reveal
-              key={project.title}
-              className={index === 0 ? "xl:col-span-2" : ""}
-              delay={index * 120}
-            >
-              <ProjectCard {...project} priority={index === 0} />
-            </Reveal>
-          ))}
+          {loading ? (
+            <div className="col-span-full py-20 text-center text-white/40">
+              Loading projects...
+            </div>
+          ) : dbProjects.length > 0 ? (
+            dbProjects.map((project, index) => (
+              <Reveal
+                key={project._id || project.title}
+                className={index === 0 ? "xl:col-span-2" : ""}
+                delay={index * 120}
+              >
+                <ProjectCard {...project} priority={index === 0} />
+              </Reveal>
+            ))
+          ) : (
+            <div className="col-span-full py-20 text-center text-white/40">
+              No projects found in database.
+            </div>
+          )}
         </div>
       </Section>
 
@@ -235,25 +299,40 @@ export default function Home() {
                 frontend engineering, design systems, machine learning, and
                 product-focused development.
               </p>
-              <form className="mt-6 space-y-4">
+              <form className="mt-6 space-y-4" onSubmit={handleContactSubmit}>
                 <input
                   type="text"
                   placeholder="Your name"
+                  value={formState.name}
+                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                  required
                   className="w-full rounded-full border border-accent/15 bg-white/[0.03] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-accent"
                 />
                 <input
                   type="email"
                   placeholder="Your email"
+                  value={formState.email}
+                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  required
                   className="w-full rounded-full border border-accent/15 bg-white/[0.03] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-accent"
                 />
                 <textarea
                   rows={5}
                   placeholder="Tell me about your project"
+                  value={formState.message}
+                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  required
                   className="w-full rounded-[1.5rem] border border-accent/15 bg-white/[0.03] px-5 py-4 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-accent"
                 />
-                <Button as="button" type="button">
-                  Start the Conversation
+                <Button as="button" type="submit" disabled={sending}>
+                  {sending ? "Sending..." : "Start the Conversation"}
                 </Button>
+                {sentStatus === "success" && (
+                  <p className="mt-2 text-xs text-green-400">Message sent successfully!</p>
+                )}
+                {sentStatus === "error" && (
+                  <p className="mt-2 text-xs text-red-400">Failed to send message. Please check console.</p>
+                )}
               </form>
             </div>
           </Reveal>
