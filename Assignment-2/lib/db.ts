@@ -6,12 +6,7 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/portfolio-
 if (!MONGO_URI) {
   throw new Error('Please define the MONGO_URI environment variable inside .env.local');
 }
-
-/**
- * Global is used here to maintain a cached connection across hot reloads
- * in development. This prevents connections growing exponentially
- * during API Route usage.
- */
+  
 let cached = (global as any).mongoose;
 
 if (!cached) {
@@ -36,10 +31,10 @@ async function connectDB() {
 
   try {
     cached.conn = await cached.promise;
-    
+
     // Auto-seeding logic
     await seedData();
-    
+
     return cached.conn;
   } catch (e) {
     cached.promise = null;
@@ -52,7 +47,7 @@ async function seedData() {
     const count = await Project.countDocuments();
     if (count === 0) {
       console.log('Database is empty. Seeding initial data...');
-      
+
       const initialProjects = [
         {
           title: "Lang2CAD",
