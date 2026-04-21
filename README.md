@@ -6,10 +6,10 @@ Welcome to my personal full-stack development journey. This repository is a livi
 
 | Project | Focus | Tech Stack | Status |
 | :--- | :--- | :--- | :--- |
-| **[Assignment 1](./Assignment-1)** | The Foundation | HTML5, CSS3 | ✅ Complete |
+| **[Assignment 1](./Assignment-1)** | The Foundation | HTML5, CSS3 | 🚀 Active |
 | **[Assignment 2](./Assignment-2)** | Modern Portfolio | Next.js, MongoDB, GitHub API | 🚀 Active |
-| **[Assignment 3](./Assignment-3)** | E-commerce Core | React, Vite, Express | ✅ Complete |
-| **[Assignment 4](./Assignment-4)** | Data Visualization | JS, Chart.js, Open-Meteo | ✅ Complete |
+| **[Assignment 3](./Assignment-3)** | E-commerce Core | React, Vite, Express | 🚀 Active |
+| **[Assignment 4](./Assignment-4)** | Data Visualization | JS, Chart.js, Open-Meteo | 🚀 Active |
 
 ---
 
