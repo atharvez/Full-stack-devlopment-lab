@@ -1,0 +1,10 @@
+import mongoose from 'mongoose';
+
+const feedbackSchema = new mongoose.Schema({
+  studentName: { type: String, required: true },
+  course: { type: String, required: true },
+  rating: { type: Number, required: true, min: 1, max: 5 },
+  comments: { type: String, required: false },
+}, { timestamps: true });
+
+export default mongoose.model('Feedback', feedbackSchema);
