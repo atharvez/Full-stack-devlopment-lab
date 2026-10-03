@@ -1,34 +1,37 @@
-# 🚀 Full-Stack Development Laboratory
+﻿# Full Stack Development Lab ðŸ§ª
 
-Welcome to my personal full-stack development journey. This repository is a living collection of my progress, experiments, and technical milestones as I explore the intersection of design, data, and engineering.
+University full-stack development lab assignments â€” from HTML/CSS basics to complete full-stack apps.
 
-## 📁 Laboratory Map
+**Live:** [atharvez.github.io/Full-stack-devlopment-lab](https://atharvez.github.io/Full-stack-devlopment-lab/)
 
-| Project | Focus | Tech Stack | Status |
-| :--- | :--- | :--- | :--- |
-| **[Assignment 1](./Assignment-1)** | The Foundation | HTML5, CSS3 | 🚀 Active |
-| **[Assignment 2](./Assignment-2)** | Modern Portfolio | Next.js, MongoDB, GitHub API | 🚀 Active |
-| **[Assignment 3](./Assignment-3)** | E-commerce Core | React, Vite, Express | 🚀 Active |
-| **[Assignment 4](./Assignment-4)** | Data Visualization | JS, Chart.js, Open-Meteo | 🚀 Active |
+## Lab Assignments
 
----
+| # | Topic | Tech |
+|---|-------|------|
+| Assignment-1 | HTML/CSS Fundamentals | HTML5, CSS3 |
+| Assignment-2 | JavaScript DOM | Vanilla JS |
+| Assignment-3 | React Components | React 18 |
+| Assignment-4 | API Integration | REST APIs, Fetch |
+| Assignment-5 | Full Stack App | Next.js + Backend |
 
-## 🛠️ The Toolkit
+## Tech Stack
 
-My current stack focuses on building scalable, user-centric applications:
-- **Frontend**: Next.js (App Router), React, Tailwind CSS, Framer Motion
-- **Backend**: Node.js, Express, Next.js API Routes
-- **Database**: MongoDB (Mongoose)
-- **Visualization**: Chart.js
-- **Tools**: Git, npm, Postman
+- **Frontend:** HTML5, CSS3, JavaScript, React, Next.js, TypeScript
+- **Styling:** Tailwind CSS
+- **Deployment:** GitHub Pages / Vercel
 
----
+## Getting Started
 
-## 💡 About this Lab
+```bash
+git clone https://github.com/atharvez/Full-stack-devlopment-lab.git
+cd Full-stack-devlopment-lab
 
-This repository isn't just about code; it's about **execution and craft**. Each assignment represents a specific challenge—from mastering CSS layout mechanics to architecting full-stack integrations with live third-party APIs.
+# Navigate to specific assignment
+cd Assignment-3
+npm install
+npm run dev
+```
 
-Feel free to explore the individual assignment folders for deeper technical breakdowns!
+## Course
 
----
-*Built with ❤️ by Atharva Desai.*
+Full Stack Web Development Lab â€” [Atharva Desai](https://github.com/atharvez)
