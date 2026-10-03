@@ -1,6 +1,6 @@
-﻿# Full Stack Development Lab ðŸ§ª
+# Full Stack Development Lab
 
-University full-stack development lab assignments â€” from HTML/CSS basics to complete full-stack apps.
+University full-stack development lab assignments -- from HTML/CSS basics to complete full-stack apps.
 
 **Live:** [atharvez.github.io/Full-stack-devlopment-lab](https://atharvez.github.io/Full-stack-devlopment-lab/)
 
@@ -16,9 +16,9 @@ University full-stack development lab assignments â€” from HTML/CSS basics 
 
 ## Tech Stack
 
-- **Frontend:** HTML5, CSS3, JavaScript, React, Next.js, TypeScript
-- **Styling:** Tailwind CSS
-- **Deployment:** GitHub Pages / Vercel
+- Frontend: HTML5, CSS3, JavaScript, React, Next.js, TypeScript
+- Styling: Tailwind CSS
+- Deployment: GitHub Pages / Vercel
 
 ## Getting Started
 
@@ -26,7 +26,7 @@ University full-stack development lab assignments â€” from HTML/CSS basics 
 git clone https://github.com/atharvez/Full-stack-devlopment-lab.git
 cd Full-stack-devlopment-lab
 
-# Navigate to specific assignment
+# Navigate to a specific assignment
 cd Assignment-3
 npm install
 npm run dev
@@ -34,4 +34,4 @@ npm run dev
 
 ## Course
 
-Full Stack Web Development Lab â€” [Atharva Desai](https://github.com/atharvez)
+Full Stack Web Development Lab -- Atharva Desai
